@@ -12,7 +12,7 @@ import (
 )
 
 func main() {
-	sprobe := probes.NewRandomProbe()
+	sprobe := probes.NewRandomProbe(prometheus.Labels{"code": "example"})
 	for _, coll := range sprobe.Collectors() {
 		prometheus.MustRegister(coll)
 	}
